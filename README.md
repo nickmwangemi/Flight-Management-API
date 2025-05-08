@@ -344,3 +344,69 @@ Generate flight statistics report for a given time period.
 - Additional reporting capabilities
 - Real-time flight tracking
 - Integration with external aviation APIs
+
+# Database Seeding
+
+I've created a database seeding script (`seed_db.py`) that will populate your database with sample data for development and testing purposes. Here's how to use it:
+
+## Features
+
+- Creates a configurable number of aircraft with realistic manufacturer and model combinations
+- Generates unique serial numbers for each aircraft
+- Creates flights between major international airports with realistic departure/arrival times
+- Assigns aircraft to flights (with some flights intentionally left unassigned)
+- Handles database clearing and re-seeding
+
+## Usage
+
+### Basic Seeding
+
+To populate your database with default values (15 aircraft and 50 flights):
+
+```bash
+python seed_db.py
+```
+
+### Clear and Re-seed
+
+To clear the existing data and re-seed the database:
+
+```bash
+python seed_db.py --clear
+```
+
+### Only Clear
+
+To clear the database without adding new seed data:
+
+```bash
+python seed_db.py --clear --only-clear
+```
+
+### Customizing Seed Data
+
+You can modify the `seed_database()` function call in the script to customize the number of aircraft and flights:
+
+```python
+# To create 20 aircraft and 100 flights
+seed_database(aircraft_count=20, flight_count=100)
+```
+
+## Sample Data Generated
+
+### Aircraft
+
+- Manufacturers include: Airbus, Boeing, Bombardier, Embraer, and Cessna
+- Models appropriate to each manufacturer (e.g., Boeing 737, Airbus A320)
+- Unique serial numbers in the format `[Manufacturer Initial][Model Code]-[4-digit number]`
+
+### Flights
+
+- Randomly selected departure and arrival airports from a list of major international airports
+- Departure times within the next 30 days
+- Realistic flight durations
+- 90% of flights have aircraft assigned; 10% are unassigned
+
+## Integration with the Application
+
+This seeding script uses your existing application context and models, so it's fully integrated with your Flask application. You can run it independently or integrate it into your application startup process for development environments.
