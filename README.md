@@ -21,7 +21,7 @@ A REST API for efficiently managing an aircraft fleet, including CRUD operations
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone git@github.com:nickmwangemi/Flight-Management-API.git
    cd aircraft-fleet-management
    ```
 
