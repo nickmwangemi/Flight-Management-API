@@ -1,7 +1,6 @@
 import os
 
 class Config:
-    # Use SQLite for simplicity in this example
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///app.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     # Secret key for potential future expansion (e.g., token authentication)
