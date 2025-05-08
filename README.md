@@ -38,7 +38,7 @@ A REST API for efficiently managing an aircraft fleet, including CRUD operations
 
 4. Run the application:
    ```bash
-   python run.py
+   flask run
    ```
 
 5. Run tests:
